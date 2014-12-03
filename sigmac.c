@@ -86,6 +86,10 @@ EXPORT int eval(const char *func,
       sigma_cold(wrf, n_m3, Z, amu, bMag, nuOmg, sigma_stix);
       //sigma_cold(wrf, n_m3, Z, amu, bMag, nuOmg);
 
+        printf("%f+i%f %f+i%f %f+i%f\n",sigma_stix[0][0],sigma_stix[0][1],sigma_stix[0][2]);
+        printf("%f+i%f %f+i%f %f+i%f\n",sigma_stix[1][0],sigma_stix[1][1],sigma_stix[1][2]);
+        printf("%f+i%f %f+i%f %f+i%f\n",sigma_stix[2][0],sigma_stix[2][1],sigma_stix[2][2]);
+
     }
 
     fprintf(ofp,"\n");
