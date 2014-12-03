@@ -16,7 +16,6 @@ contains
 
         real(kind=c_double), intent(in) :: omgrf, Z, amu, bmag, n_m3
         real, intent(in) :: nuOmg
-        !type(spatialSigmaInput_cold) :: a 
 
         complex(kind=DBL) :: omgrfc
         complex :: sig1, sig2, sig3

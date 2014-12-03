@@ -41,7 +41,7 @@ EXPORT int eval(const char *func,
   }
   else if (strcmp("extsigma", func) == 0) {
 
-    if (nArgs != 6) {
+    if (nArgs != 3) {
       error = "Six arguments expected: wrf, n_m3, Z, amu, bMag, nuOmg";
       return 0;
     }
@@ -60,16 +60,16 @@ EXPORT int eval(const char *func,
       double wrf = inReal[0][i];
       double n_m3 = inReal[1][i];
       double Z = inReal[2][i];
-      double amu = inReal[3][i];
-      double bMag = inReal[4][i];
-      double nuOmg = inReal[5][i];
+      double amu = 1.0;//inReal[3][i];
+      double bMag = 5.0;//inReal[4][i];
+      double nuOmg = 0.0;//inReal[5][i];
     
       fprintf(ofp,"%s %f\n","wrf: ", wrf);
       fprintf(ofp,"%s %f\n","n_m3: ", n_m3);
       fprintf(ofp,"%s %f\n","Z: ", Z);
-      fprintf(ofp,"%s %f\n","amu: ", amu);
-      fprintf(ofp,"%s %f\n","bMag: ", bMag);
-      fprintf(ofp,"%s %f\n","nuOmg: ", nuOmg);
+      //fprintf(ofp,"%s %f\n","amu: ", amu);
+      //fprintf(ofp,"%s %f\n","bMag: ", bMag);
+      //fprintf(ofp,"%s %f\n","nuOmg: ", nuOmg);
 
       sigma_cold(wrf, n_m3, Z, amu, bMag, nuOmg, sigma_stix);
 
