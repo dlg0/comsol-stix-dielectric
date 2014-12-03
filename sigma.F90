@@ -1,10 +1,11 @@
 module sigma
 
-use, intrinsic :: iso_c_binding, only: c_double_complex, c_double
+use, intrinsic :: iso_c_binding, only: c_double, c_double_complex
 
 contains
 
     subroutine sigma_cold  ( omgRF, n_m3, Z, amu, bMag, nuOmg, sigma_stix ) bind(C,name="sigma_cold")
+    !subroutine sigma_cold  ( omgRF, n_m3, Z, amu, bMag, nuOmg ) bind(C,name="sigma_cold")
 
         use constants 
 
@@ -14,11 +15,11 @@ contains
 
         implicit none
 
-        real(kind=c_double), intent(in) :: omgrf, n_m3, Z, amu, bmag, nuOmg
+        real(kind=c_double), intent(in), value :: omgrf, n_m3, Z, amu, bmag, nuOmg
+        complex(kind=c_double_complex), intent(inout) :: sigma_stix(3,3)
 
         complex(kind=DBL) :: omgrfc
         complex :: sig1, sig2, sig3
-        complex(kind=c_double_complex), intent(inout) :: sigma_stix(3,3)
         complex :: zieps0
 
         complex :: K1_swan,K2_swan,K3_swan
@@ -29,6 +30,11 @@ contains
 
         integer :: fStat
         character(len=80) :: logFileName = 'sigmaFortran.log'
+        
+        write(*,*), 'omgrf: ', omgrf
+        write(*,*), 'n_m3: ', n_m3
+        write(*,*), 'Z: ', Z
+        write(*,*), 'sigma_stix[0][0]: ', sigma_stix(1,1)
 
         open(1,file=logFileName,status='replace',iostat=fStat)
         write(1,'(5(f12.6,4x))'), omgrf, Z, amu, bmag, n_m3 

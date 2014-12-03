@@ -10,4 +10,4 @@ EXPORT int eval(const char *func,
                               const double **inImag,
                               int blockSize,
                               double *outReal,
-                              double *outImag)
+                              double *outImag);
