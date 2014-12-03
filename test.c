@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "sigmac.h"
 
 int main ()
 {
@@ -14,6 +15,8 @@ int main ()
 
   	int stat = 0;
 
-	stat = eval (func, nArgs, (double **)inReal, (double **)inImag, blockSize, outReal, outImag);
+	stat = eval (funcPtr, nArgs, 
+					inReal, inImag, blockSize, 
+					outReal, outImag);
 	return 0;
 }

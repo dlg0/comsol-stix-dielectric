@@ -10,7 +10,9 @@
 #endif
  
 static const char *error = NULL;
- 
+void sigma_cold  ( double omgRF, double n_m3, double Z, 
+				double amu, double bMag, double nuOmg, double _Complex sigma_stix[3][3] );
+
 EXPORT int init(const char *str) {
   return 1;
 }

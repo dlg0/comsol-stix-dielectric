@@ -1,7 +1,7 @@
 CC = gcc
 F90 = gfortran
 F90FLAGS = 
-CFLAGS = -lgfortran -g
+CFLAGS = -lgfortran -g 
 
 sigma.so: sigmac.c sigma.F90 constants.f90
 	$(CC) -c sigmac.c -o sigmac.o 

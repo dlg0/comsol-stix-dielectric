@@ -4,7 +4,7 @@ use, intrinsic :: iso_c_binding, only: c_double_complex, c_double
 
 contains
 
-    subroutine sigma_cold  ( omgRF, n_m3, Z, amu, bMag, nuOmg, sigma_stix ) bind(C)
+    subroutine sigma_cold  ( omgRF, n_m3, Z, amu, bMag, nuOmg, sigma_stix ) bind(C,name="sigma_cold")
 
         use constants 
 
@@ -14,8 +14,7 @@ contains
 
         implicit none
 
-        real(kind=c_double), intent(in) :: omgrf, Z, amu, bmag, n_m3
-        real, intent(in) :: nuOmg
+        real(kind=c_double), intent(in) :: omgrf, n_m3, Z, amu, bmag, nuOmg
 
         complex(kind=DBL) :: omgrfc
         complex :: sig1, sig2, sig3
